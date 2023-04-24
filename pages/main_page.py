@@ -2,6 +2,28 @@ from .login_page import LoginPage
 from .locators import MainPageLocators
 class MainPage(LoginPage):
 
+    def check_locator_go_to_login(self):
+        self.should_be_login_link()
+
+    def check_go_to_login(self):
+        link_smoke = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        link_smoke.click()
+
+    def check_login_in_url(self):
+        link_smoke = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        link_smoke.click()
+        self.should_be_login_url()
+
+    def check_login_form(self):
+        link_smoke = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        link_smoke.click()
+        self.should_be_login_form()
+
+    def check_register_form(self):
+        link_smoke = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        link_smoke.click()
+        self.should_be_register_form()
+
     def check_all_asserts(self):
         self.should_be_login_link()
         link_smoke = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
@@ -9,4 +31,5 @@ class MainPage(LoginPage):
         self.should_be_login_url()
         self.should_be_login_form()
         self.should_be_register_form()
+
 
