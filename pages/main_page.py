@@ -37,6 +37,10 @@ class MainPage(LoginPage):
 
 class MainPage2(ProductPage):
 
+    def check_open_basket(self):
+        link_smoke = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_BASKET)
+        link_smoke.click()
+
     def check_basket(self):
         self.should_be_basket()
         link_smoke = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_BASKET)

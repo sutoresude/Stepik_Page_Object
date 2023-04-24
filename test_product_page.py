@@ -8,3 +8,22 @@ def test_guest_can_add_product_to_basket(browser, link):
     page = MainPage2(browser, link)
     page.open()
     page.check_basket()
+
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    page = MainPage2(browser, link)
+    page.open()
+    page.check_basket()
+    page.should_not_be_success_message()
+
+def test_guest_cant_see_success_message(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    page = MainPage2(browser, link)
+    page.open()
+    page.should_not_be_success_message()
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    page = MainPage2(browser, link)
+    page.open()
+    page.check_basket()
+    page.success_message_should_disappear()
